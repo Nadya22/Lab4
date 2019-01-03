@@ -3,7 +3,7 @@ public class Main {
     public static void main(String[] args) {
 
         CommonResource commonResource= new CommonResource();
-        for (int i = 1; i < 6; i++){
+        for (int i = 1; i < 3; i++){
 
             Thread t = new Thread(new CountThread(commonResource));
             t.setName("Thread "+ i);
@@ -27,7 +27,7 @@ class CountThread implements Runnable{
         synchronized(res){
             res.x=1;
             for (int i = 1; i < 5; i++){
-                System.out.printf("%s %d \n", Thread.currentThread().getName(), res.x);
+                System.out.printf("  %s  %d \n", Thread.currentThread().getName(), res.x);
                 res.x++;
                 try{
                     Thread.sleep(60);
